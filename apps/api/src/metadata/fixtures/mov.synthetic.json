@@ -1,0 +1,27 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mov",
+    "duration": "1832.520000",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "prores",
+      "profile": "422",
+      "width": 1280,
+      "height": 720,
+      "r_frame_rate": "30000/1001",
+      "pix_fmt": "yuv422p10le"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "pcm_s24le",
+      "sample_rate": "48000",
+      "channels": 2
+    }
+  ]
+}

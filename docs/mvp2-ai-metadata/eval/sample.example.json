@@ -1,0 +1,43 @@
+{
+  "sample_id": "example-only-not-a-baseline",
+  "note": "Illustrative evaluation sample showing the required structure. Values here are PLACEHOLDERS, not measured results and not human labels. Do not treat as a baseline or a quality score.",
+  "source": {
+    "kind": "synthetic-fixture",
+    "ref": "ai-processor/tests/fixtures/caption_always.mp4",
+    "duration_sec": 6.0
+  },
+  "reference": {
+    "transcript_excerpt": null,
+    "keywords": [],
+    "category": null,
+    "caption_text": "TMIPCAPTION"
+  },
+  "produced": {
+    "TRANSCRIPTION": {
+      "segments": [],
+      "full_text": "",
+      "duration_sec": null,
+      "language": null
+    },
+    "SUMMARY": { "summary": "" },
+    "KEYWORDS": { "keywords": [] },
+    "CLASSIFICATION": { "category": "" },
+    "OCR": {
+      "raw_text": "TMIPCAPTION",
+      "presenter": null,
+      "sampled_count": 5,
+      "best_timestamp_sec": 3.0
+    }
+  },
+  "human_judgment": {
+    "reviewer": null,
+    "reviewed_at": null,
+    "summary_score": null,
+    "keyword_precision": null,
+    "keyword_recall": null,
+    "category_match": null,
+    "transcript_wer": null,
+    "ocr_match": null,
+    "notes": "Human fields are intentionally null until a reviewer records them. Automated contract checks never fill these."
+  }
+}

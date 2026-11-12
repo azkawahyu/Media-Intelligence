@@ -1,0 +1,26 @@
+# TMIP AI Processor — Phase 14 MVP text pipeline only
+# (docs/plans/006-ai-processor-integration.md, ADR-006 §15).
+#
+# IN: transcription (faster-whisper) -> summary/keywords/classification
+#     (OpenRouter) -> lower-third OCR (Tesseract).
+# DEFERRED (Phase 15): torchvision, open_clip_torch, ultralytics,
+#     scenedetect[opencv] (scene/CLIP/YOLO vision pipeline).
+#
+# torch is NOT listed: faster-whisper 1.2.x runs on CTranslate2 and does not
+# depend on torch. Plan 006 §2.1 assumed torch would install transitively via
+# faster-whisper; verification against the built image showed it does not, so
+# `transcribe.py` uses `WhisperModel(..., cpu_threads=...)` instead of
+# `torch.set_num_threads`. Re-adding torch would cost ~800 MB for nothing.
+
+# Audio/Visual processing
+faster-whisper
+opencv-python-headless
+
+# OCR
+pytesseract
+
+# API & utilities
+fastapi
+uvicorn[standard]
+httpx
+pydantic

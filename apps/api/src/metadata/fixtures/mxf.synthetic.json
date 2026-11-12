@@ -1,0 +1,27 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mxf",
+    "duration": "60.000000",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "mpeg2video",
+      "profile": "Main",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "25",
+      "pix_fmt": "yuv422p"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "pcm_s24le",
+      "sample_rate": "48000",
+      "channels": 8
+    }
+  ]
+}

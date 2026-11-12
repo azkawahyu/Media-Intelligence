@@ -1,0 +1,16 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mp4",
+    "duration": "1.0",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "r_frame_rate": "25"
+    }
+  ]
+}

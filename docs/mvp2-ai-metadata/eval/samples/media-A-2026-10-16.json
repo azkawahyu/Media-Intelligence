@@ -1,0 +1,1385 @@
+{
+  "sample_id": "media-A-2026-10-16",
+  "note": "Initial QUALITATIVE human review of one existing production-video AI run. Numeric scores and ground-truth fields are intentionally unset (not measured). This is one sample and is not a baseline; OD-07 remains open.",
+  "source": {
+    "kind": "production-video",
+    "ref": "<media-A>",
+    "duration_sec": 1442.96,
+    "note": "Production asset; filename withheld. AI run 2026-10-13 (all 5 stages READY)."
+  },
+  "reference": {
+    "transcript_excerpt": null,
+    "keywords": [],
+    "category": null,
+    "caption_text": null
+  },
+  "produced": {
+    "TRANSCRIPTION": {
+      "language": "id",
+      "segments": [
+        {
+          "end": 22.54,
+          "text": "INTRO",
+          "start": 0
+        },
+        {
+          "end": 51.54,
+          "text": "Banten, biasa yang sudah dikenal akan adat budayanya, kebersahajaannya, dan bentang alamnya masih menyembunyikan suatu pesona, sebuah citarasa dari tanaman alami para dewa.",
+          "start": 22.54
+        },
+        {
+          "end": 63.54,
+          "text": "Kopi Banten Kidul adalah kopi yang diproses secara alami dan diproses secara tradisional.",
+          "start": 53.54
+        },
+        {
+          "end": 79.54,
+          "text": "Sebagai penikmat kopi, pecinta kopi sudah tidak terhitung seberapa banyaknya cangkir kopi yang disesap.",
+          "start": 72.54
+        },
+        {
+          "end": 91.54,
+          "text": "Dan berbagai macam jenis rasa yang telah kucoba, tetapi hanya ada satu jenis kopi, satu biji kopi penuh aroma yang mampu membawaku hingga sejauh ini di desa ini.",
+          "start": 79.54
+        },
+        {
+          "end": 103.54,
+          "text": "Tentu perjuangan untuk mengenal lebih dalam tentang biji kopi yang penuh dengan aroma, serta mengaitkannya dengan kenangan dan juga perjuangan proses didalamnya.",
+          "start": 92.54
+        },
+        {
+          "end": 106.54,
+          "text": "Inilah hasanah Kopi Banten.",
+          "start": 104.54
+        },
+        {
+          "end": 113.54,
+          "text": "Kopi Banten Kidul",
+          "start": 109.54
+        },
+        {
+          "end": 117.54,
+          "text": "Kopi Banten Kidul",
+          "start": 113.54
+        },
+        {
+          "end": 121.54,
+          "text": "Kopi Banten Kidul",
+          "start": 117.54
+        },
+        {
+          "end": 144.54,
+          "text": "Aroma kopi menyambutku setibanya di desa Jaga Raksa Muncang, desa yang menasbihkan diri sebagai desa kopi dari Banten Kidul.",
+          "start": 136.54
+        },
+        {
+          "end": 157.54,
+          "text": "Desa ajaib yang menyediakan lahan luas Nansubur untuk beragam vegetasi tumbuh dan berkembang, memungkinkan warganya untuk hidup dari panen yang tidak berkekurangan.",
+          "start": 145.54
+        },
+        {
+          "end": 168.54,
+          "text": "Desa yang cukup ramah untuk mempersilakanku bernaung di rumah adatnya, berlindung dari hujan sambil mensesap kopi sebelum memulai perjalanan.",
+          "start": 158.54
+        },
+        {
+          "end": 178.54,
+          "text": "Kopi Banten Kidul",
+          "start": 174.54
+        },
+        {
+          "end": 187.54,
+          "text": "Perjalanan mencari ahli di tengah kampung penuh aroma kopi.",
+          "start": 183.54
+        },
+        {
+          "end": 191.54,
+          "text": "Kopi Banten Kidul",
+          "start": 187.54
+        },
+        {
+          "end": 199.54,
+          "text": "Nah ini akhirnya ketemu kak Engkos saya, Bella.",
+          "start": 195.54
+        },
+        {
+          "end": 204.54,
+          "text": "Pengen belajar soal kopi, saya sudah nanya warga di desa sini.",
+          "start": 200.54
+        },
+        {
+          "end": 208.54,
+          "text": "Kalau pengen belajar soal kopi, jago nya kak Engkos. Boleh ya kak ya?",
+          "start": 205.54
+        },
+        {
+          "end": 210.54,
+          "text": "Boleh, silahkan duduk dulu kali ya.",
+          "start": 209.54
+        },
+        {
+          "end": 212.54,
+          "text": "Wah halatnya udah siap nih.",
+          "start": 211.54
+        },
+        {
+          "end": 220.54,
+          "text": "Kalau mau tau rasanya kopi yang ada di desa sini, kita langsung coba rajik saja dulu ya.",
+          "start": 213.54
+        },
+        {
+          "end": 222.54,
+          "text": "Siap.",
+          "start": 221.54
+        },
+        {
+          "end": 225.54,
+          "text": "Kita timbang dulu ya kopinya.",
+          "start": 223.54
+        },
+        {
+          "end": 229.54,
+          "text": "Kak Engkos pun sigap menimbang biji kopi sesuai takarannya.",
+          "start": 226.54
+        },
+        {
+          "end": 234.54,
+          "text": "Biji kopi seistimewa ini memang harus diperlakukan dengan selayaknya.",
+          "start": 230.54
+        },
+        {
+          "end": 241.54,
+          "text": "Kalau tidak pas, air dan kopinya rasanya juga tidak sesuai.",
+          "start": 235.54
+        },
+        {
+          "end": 245.54,
+          "text": "Terus setelah didimbang, baru kita gigi dulu ya.",
+          "start": 242.54
+        },
+        {
+          "end": 255.54,
+          "text": "Dihaluskan hingga aromanya menyeruak, seakan berbisik untuk segera diseduh.",
+          "start": 250.54
+        },
+        {
+          "end": 257.54,
+          "text": "Udah mulai ringan ya?",
+          "start": 256.54
+        },
+        {
+          "end": 258.54,
+          "text": "Udah ringan.",
+          "start": 257.54
+        },
+        {
+          "end": 259.54,
+          "text": "Kata dia agak berat gitu kan?",
+          "start": 258.54
+        },
+        {
+          "end": 263.54,
+          "text": "Nah ini udah ya.",
+          "start": 262.54
+        },
+        {
+          "end": 268.54,
+          "text": "Nah kita tinggang, ini nih kertasnya.",
+          "start": 263.54
+        },
+        {
+          "end": 276.54,
+          "text": "Setelah kertas, kita masukin bumbu kopinya ya.",
+          "start": 271.54
+        },
+        {
+          "end": 283.54,
+          "text": "Langsung dituang aja.",
+          "start": 281.54
+        },
+        {
+          "end": 293.54,
+          "text": "Perlahan, kopi Pait pun menetes dari satu persatu memenuhi gelas tadah untuk siap disajikan.",
+          "start": 284.54
+        },
+        {
+          "end": 300.54,
+          "text": "Kang, jadi Bela kesini jauh-jauh emang pengen belajar tentang kopi bantan terpikat nih.",
+          "start": 294.54
+        },
+        {
+          "end": 303.54,
+          "text": "Karena kopinya bisa sehas itu.",
+          "start": 300.54
+        },
+        {
+          "end": 307.54,
+          "text": "Kita sambil itu, langsung cobain aja ya Kak Bela.",
+          "start": 304.54
+        },
+        {
+          "end": 308.54,
+          "text": "Boleh, boleh.",
+          "start": 307.54
+        },
+        {
+          "end": 310.54,
+          "text": "Biar tahu rasanya seperti apa.",
+          "start": 308.54
+        },
+        {
+          "end": 316.54,
+          "text": "Kita tuang dulu, kita ngopi bareng.",
+          "start": 311.54
+        },
+        {
+          "end": 325.54,
+          "text": "Silahkan Kak, dicoba dulu.",
+          "start": 323.54
+        },
+        {
+          "end": 334.54,
+          "text": "Rasanya seperti ada rempah, sama ada sensasi buah tropisnya.",
+          "start": 330.54
+        },
+        {
+          "end": 337.54,
+          "text": "Ini bisa sehas itu gimana ini Kang?",
+          "start": 335.54
+        },
+        {
+          "end": 341.54,
+          "text": "Ini rasa khas kopi ini yang rasanya begitu.",
+          "start": 337.54
+        },
+        {
+          "end": 347.54,
+          "text": "Kita dari proses pertama pemilihan biji untuk ditanam, itu mempengaruhi gitu.",
+          "start": 341.54
+        },
+        {
+          "end": 351.54,
+          "text": "Terus disini kami pengolahannya pakai pupuk organik.",
+          "start": 347.54
+        },
+        {
+          "end": 358.54,
+          "text": "Dan disekitarnya itu ada pohon-pohon buah-buahan tropis seperti pisang.",
+          "start": 351.54
+        },
+        {
+          "end": 361.54,
+          "text": "Terus ada kalau ada rempahnya itu cengkeh gitu.",
+          "start": 358.54
+        },
+        {
+          "end": 364.54,
+          "text": "Makanya seperti ini rasanya gitu.",
+          "start": 362.54
+        },
+        {
+          "end": 369.54,
+          "text": "Jadi maksudnya rasa kopi ini ibaratnya paling beda di antara kopi yang lain.",
+          "start": 365.54
+        },
+        {
+          "end": 373.54,
+          "text": "Karena juga dipengaruhi sejak dari pengalaman di awal tadi.",
+          "start": 369.54
+        },
+        {
+          "end": 376.54,
+          "text": "Boleh ya kak?",
+          "start": 375.54
+        },
+        {
+          "end": 377.54,
+          "text": "Boleh, silahkan.",
+          "start": 376.54
+        },
+        {
+          "end": 388.54,
+          "text": "Kang, tadi untuk penyajiannya ini ada trik khusus yang membuat ini paling beda di antara yang lain?",
+          "start": 380.54
+        },
+        {
+          "end": 393.54,
+          "text": "Ya ada, kita kalau mau ngeraci kopi sebenarnya harus tahu cuacanya.",
+          "start": 388.54
+        },
+        {
+          "end": 400.54,
+          "text": "Kadang kalau ada cuaca dingin kita agak dipanaskan, lebih panas.",
+          "start": 393.54
+        },
+        {
+          "end": 402.54,
+          "text": "Kalau cuaca lagi panas kita agak tarik dinginnya.",
+          "start": 400.54
+        },
+        {
+          "end": 407.54,
+          "text": "Biar sensasi kopi ini keluar gitu.",
+          "start": 402.54
+        },
+        {
+          "end": 411.54,
+          "text": "Jadi sebenarnya cuaca itu juga mempengaruhi bagaimana penyajian?",
+          "start": 408.54
+        },
+        {
+          "end": 412.54,
+          "text": "Mempengaruhi, buat terasa itu.",
+          "start": 411.54
+        },
+        {
+          "end": 416.54,
+          "text": "Karena air dan kopi ini dia harus benar-benar kesimbang.",
+          "start": 412.54
+        },
+        {
+          "end": 417.54,
+          "text": "Siap, mantap.",
+          "start": 416.54
+        },
+        {
+          "end": 420.54,
+          "text": "Kang, boleh dong kalau mau lihat tanamannya?",
+          "start": 417.54
+        },
+        {
+          "end": 424.54,
+          "text": "Ya boleh, silahkan ada teman saya di bukit gunung sana.",
+          "start": 420.54
+        },
+        {
+          "end": 425.54,
+          "text": "Oh, langsung aja?",
+          "start": 424.54
+        },
+        {
+          "end": 426.54,
+          "text": "Langsung aja silahkan.",
+          "start": 425.54
+        },
+        {
+          "end": 427.54,
+          "text": "Langsung ketemu di sana?",
+          "start": 426.54
+        },
+        {
+          "end": 428.54,
+          "text": "Langsung ketemu sama Kang Ebeng.",
+          "start": 427.54
+        },
+        {
+          "end": 431.54,
+          "text": "Siap, balang itu belom mau ketemu sama Kang Ebeng.",
+          "start": 428.54
+        },
+        {
+          "end": 434.54,
+          "text": "Terima kasih kak Mkol sudah diajarin.",
+          "start": 431.54
+        },
+        {
+          "end": 436.54,
+          "text": "Saya juga mau langsung ketemu sama Kang Ebeng.",
+          "start": 434.54
+        },
+        {
+          "end": 437.54,
+          "text": "Siap, terima kasih.",
+          "start": 436.54
+        },
+        {
+          "end": 438.54,
+          "text": "Sama-sama kak.",
+          "start": 437.54
+        },
+        {
+          "end": 466.54,
+          "text": "Tujuanku berikutnya adalah bukit di belakang kampung Jaga Raksa.",
+          "start": 450.54
+        },
+        {
+          "end": 472.54,
+          "text": "Namun sebelum sempat mendaki perhatian-perhatian dari",
+          "start": 466.54
+        },
+        {
+          "end": 477.54,
+          "text": "Tujuan ku berikutnya adalah bukit di belakang kampung Jaga Raksa.",
+          "start": 472.54
+        },
+        {
+          "end": 487.54,
+          "text": "Namun, sebelum sempat mendaki perhatian ku teralih ke satu saung di kaki gunung bertitel Sikinujadi alias Benih Yang Tumbuh.",
+          "start": 477.54
+        },
+        {
+          "end": 490.54,
+          "text": "Sebuah frasa yang menjadi harap bagi para petani.",
+          "start": 487.54
+        },
+        {
+          "end": 498.54,
+          "text": "Digerakkan oleh para pemuda, tempat ini menjadi salah satu elemen penting untuk kultur kopi di kampung ini.",
+          "start": 490.54
+        },
+        {
+          "end": 510.54,
+          "text": "Sikinujadi menjadi swaka untuk benih-benih kopi tumbuh di tengah kampung kopi.",
+          "start": 503.54
+        },
+        {
+          "end": 517.54,
+          "text": "Dua varietas utama tumbuh di sini. Kopi Arabika dan Robusta hidup beriringan.",
+          "start": 510.54
+        },
+        {
+          "end": 527.54,
+          "text": "Di sini, petani kopi dengan telaten merawat benih yang ada.",
+          "start": 523.54
+        },
+        {
+          "end": 536.54,
+          "text": "Diperlakukan selayaknya anak, dilindungi dari ancaman, diberikan nutrisi, doa, dan puja-puji.",
+          "start": 527.54
+        },
+        {
+          "end": 566.54,
+          "text": "Seakan menjawab biji kopi Arabika dapat tumbuh subur di desa Jaga Raksa ini.",
+          "start": 558.54
+        },
+        {
+          "end": 572.54,
+          "text": "Di dataran yang relatif rendah, kurang dari 800 meter di atas permukaan laut.",
+          "start": 566.54
+        },
+        {
+          "end": 580.54,
+          "text": "Dan para petani ini dapat sedikit berbangga atas jari payah mereka melestarikan kopi di tanah ajaib ini.",
+          "start": 572.54
+        },
+        {
+          "end": 593.54,
+          "text": "Perjalanan saya hari ini membawa di desa Jaga Raksa.",
+          "start": 587.54
+        },
+        {
+          "end": 599.54,
+          "text": "Ini adalah satu dari petani yang diperlakukan.",
+          "start": 593.54
+        },
+        {
+          "end": 606.54,
+          "text": "Pertama, kita akan menggunakan perjalanan yang diperlakukan.",
+          "start": 599.54
+        },
+        {
+          "end": 612.54,
+          "text": "Pertama, kita akan menggunakan perjalanan yang diperlakukan.",
+          "start": 606.54
+        },
+        {
+          "end": 619.54,
+          "text": "Perjalanan saya hari ini membawa di desa Jaga Raksa, Lebak Banten.",
+          "start": 613.54
+        },
+        {
+          "end": 625.54,
+          "text": "Saat ini saya sudah bersama dengan petani kopi, yang kopinya pun sudah saya nikmati dan memiliki ciri khas.",
+          "start": 619.54
+        },
+        {
+          "end": 629.54,
+          "text": "Sudah bersama saya, Kang Ebeng, seorang petani kopi.",
+          "start": 625.54
+        },
+        {
+          "end": 636.54,
+          "text": "Yang saya juga penasaran, kalau bagi Kang Ebeng, kopi itu memaknainya seperti apa, Kang?",
+          "start": 629.54
+        },
+        {
+          "end": 640.54,
+          "text": "Oke, kalau saya memaknainya seperti anak lah.",
+          "start": 636.54
+        },
+        {
+          "end": 643.54,
+          "text": "Menarik ini, seperti anak.",
+          "start": 641.54
+        },
+        {
+          "end": 649.54,
+          "text": "Ya, karena saya selalu merawat dan melihat, menengok setiap hari apa kebutuhannya dia.",
+          "start": 643.54
+        },
+        {
+          "end": 650.54,
+          "text": "Mungkin seperti itu.",
+          "start": 649.54
+        },
+        {
+          "end": 657.54,
+          "text": "Tapi kalau bicara kopi, biasanya setiap bagiannya itu kan juga butuh perawatan,",
+          "start": 650.54
+        },
+        {
+          "end": 663.54,
+          "text": "yang kalau perawatannya tidak diperhatikan dengan baik akan mempengaruhi rasa.",
+          "start": 657.54
+        },
+        {
+          "end": 669.54,
+          "text": "Kalau di kopi Jaga Raksa ini, Kang Ebeng, boleh dibagikan ini seperti apa, Kang?",
+          "start": 663.54
+        },
+        {
+          "end": 676.54,
+          "text": "Untuk kami, kami menggunakan pupuk domba, peturan domba.",
+          "start": 669.54
+        },
+        {
+          "end": 680.54,
+          "text": "Artinya dengan sistem, bisa dikatakan organik lah.",
+          "start": 676.54
+        },
+        {
+          "end": 687.54,
+          "text": "Mungkin yang lebih isilahnya membawa rasanya beda itu kami tidak menggunakan pupuk yang lain,",
+          "start": 680.54
+        },
+        {
+          "end": 691.54,
+          "text": "istilahnya begitu, atau kimia. Mungkin seperti itu.",
+          "start": 687.54
+        },
+        {
+          "end": 693.54,
+          "text": "Cirinya sehatnya itu seperti apa, Kang?",
+          "start": 691.54
+        },
+        {
+          "end": 695.54,
+          "text": "Dari tandanya-tandanya mana, Kang?",
+          "start": 693.54
+        },
+        {
+          "end": 698.54,
+          "text": "Yang sehat ini yang tidak kena penyakit atau hama.",
+          "start": 695.54
+        },
+        {
+          "end": 700.54,
+          "text": "Dari bijinya ini?",
+          "start": 698.54
+        },
+        {
+          "end": 704.54,
+          "text": "Iya. Dan si merahnya ini, misalnya dikatakan sempurna.",
+          "start": 700.54
+        },
+        {
+          "end": 709.54,
+          "text": "Kalau yang kena hama itu seperti kena kutu, banyak yang hitam-hitam.",
+          "start": 704.54
+        },
+        {
+          "end": 710.54,
+          "text": "Misalnya seperti ini.",
+          "start": 709.54
+        },
+        {
+          "end": 711.54,
+          "text": "Seperti ini ya, Kang?",
+          "start": 710.54
+        },
+        {
+          "end": 714.54,
+          "text": "Enggak. Kayak misalnya gini. Ini.",
+          "start": 711.54
+        },
+        {
+          "end": 718.54,
+          "text": "Tapi ini sudah tergeluangi oleh kami karena sudah melakukan penyemprotan.",
+          "start": 714.54
+        },
+        {
+          "end": 725.54,
+          "text": "Ada tips khusus, Kang? Kalau misalkan menanam biji kopi, perawatannya, dan lain-lain, Kang?",
+          "start": 718.54
+        },
+        {
+          "end": 733.54,
+          "text": "Ya, kalau tipsnya dari saya adalah usahakan pertama menanam kopi ini jangan terlalu dalamlah.",
+          "start": 725.54
+        },
+        {
+          "end": 737.54,
+          "text": "Untuk bibitnya, mungkin seperti itu.",
+          "start": 733.54
+        },
+        {
+          "end": 743.54,
+          "text": "Kalau terlalu dalam, akibatnya cacing itu akan semakin cacing nematoda untuk yang diakar maksudnya.",
+          "start": 737.54
+        },
+        {
+          "end": 747.54,
+          "text": "Akan semakin menjadinya atau banyak.",
+          "start": 743.54
+        },
+        {
+          "end": 751.54,
+          "text": "Apalagi curah hujan yang terlalu tinggi, menjadikan lembar.",
+          "start": 747.54
+        },
+        {
+          "end": 761.54,
+          "text": "Usahakan 20 cm saja untuk lubang dan 20 cm-nya persegi.",
+          "start": 752.54
+        },
+        {
+          "end": 764.54,
+          "text": "Kedalaman 20 cm, misalnya seperti itu.",
+          "start": 761.54
+        },
+        {
+          "end": 766.54,
+          "text": "Terima kasih, Kang. Ini informasinya menarik.",
+          "start": 764.54
+        },
+        {
+          "end": 771.54,
+          "text": "Tapi boleh nggak, Kang, kalau saya juga diajarin cara memetik kopinya?",
+          "start": 766.54
+        },
+        {
+          "end": 774.54,
+          "text": "Tadi termasuk ada kematangan tertentu, warna tertentu. Boleh nggak, Kang?",
+          "start": 771.54
+        },
+        {
+          "end": 775.54,
+          "text": "Boleh, ayo.",
+          "start": 774.54
+        },
+        {
+          "end": 776.54,
+          "text": "Siap.",
+          "start": 775.54
+        },
+        {
+          "end": 791.54,
+          "text": "Setelah mempelajari sedikit ilmunya, asat tak cukup muncul untuk para petani yang piawai memetik biji kopi.",
+          "start": 782.54
+        },
+        {
+          "end": 796.54,
+          "text": "Mereka begitu lihai dan cekatan memilah biji terbaik jaga raksa.",
+          "start": 791.54
+        },
+        {
+          "end": 806.54,
+          "text": "Dalam sekali panen, para petani sanggup mengumpulkan berkilo biji kopi untuk dikumpulkan dan diproses kembali di desa.",
+          "start": 796.54
+        },
+        {
+          "end": 813.54,
+          "text": "Terima kasih, Kang.",
+          "start": 811.54
+        },
+        {
+          "end": 845.54,
+          "text": "Kang, ini biji kopinya mau diapain, Kang?",
+          "start": 841.54
+        },
+        {
+          "end": 847.54,
+          "text": "Ini mau dicuci.",
+          "start": 845.54
+        },
+        {
+          "end": 848.54,
+          "text": "Cuci, oke.",
+          "start": 847.54
+        },
+        {
+          "end": 854.54,
+          "text": "Disortil yang bagus apa yang nggak, gimana kita nanti akan tahu sendiri.",
+          "start": 848.54
+        },
+        {
+          "end": 856.54,
+          "text": "Oke, ini bentar. Ini lewatnya mana, nih, Kang?",
+          "start": 854.54
+        },
+        {
+          "end": 857.54,
+          "text": "Sini aja.",
+          "start": 856.54
+        },
+        {
+          "end": 859.54,
+          "text": "Sini. Ini, Kang, duluan, Kang.",
+          "start": 857.54
+        },
+        {
+          "end": 866.54,
+          "text": "Ini memang biji kopi, kan?",
+          "start": 863.54
+        },
+        {
+          "end": 872.54,
+          "text": "Ini memang biasa cucinya di sini, atau gimana, Kang?",
+          "start": 866.54
+        },
+        {
+          "end": 875.54,
+          "text": "Iya, udah biasa di sumber matahir ini.",
+          "start": 872.54
+        },
+        {
+          "end": 879.54,
+          "text": "Wow, bending ya airnya, ya?",
+          "start": 877.54
+        },
+        {
+          "end": 880.54,
+          "text": "Iya, bending.",
+          "start": 879.54
+        },
+        {
+          "end": 882.54,
+          "text": "Oke, Kang, ini digimanain dulu, Kang?",
+          "start": 880.54
+        },
+        {
+          "end": 884.54,
+          "text": "Oke, pertama saya pilih ini dulu.",
+          "start": 882.54
+        },
+        {
+          "end": 885.54,
+          "text": "Oke.",
+          "start": 884.54
+        },
+        {
+          "end": 886.54,
+          "text": "Buka tali.",
+          "start": 885.54
+        },
+        {
+          "end": 887.54,
+          "text": "Siap.",
+          "start": 886.54
+        },
+        {
+          "end": 891.54,
+          "text": "Berarti nanti airnya, ini ngambil dari sini?",
+          "start": 889.54
+        },
+        {
+          "end": 892.54,
+          "text": "Oke.",
+          "start": 891.54
+        },
+        {
+          "end": 894.54,
+          "text": "Saya bantu ambil airnya, siap.",
+          "start": 892.54
+        },
+        {
+          "end": 897.54,
+          "text": "Oke.",
+          "start": 896.54
+        },
+        {
+          "end": 905.54,
+          "text": "Oke, Kang, terus habis ini yang disortir, yang gimana ini?",
+          "start": 901.54
+        },
+        {
+          "end": 914.54,
+          "text": "Ini yang disortir yang rambang, dipisahin, kita jemur, artinya keringin dan dibawa ke rumah produksi aja.",
+          "start": 905.54
+        },
+        {
+          "end": 916.54,
+          "text": "Oke, sambil mungkin disortir, ya, Kang, ya?",
+          "start": 914.54
+        },
+        {
+          "end": 917.54,
+          "text": "Iya.",
+          "start": 916.54
+        },
+        {
+          "end": 920.54,
+          "text": "Berarti nanti boleh ya setelah ini lihat proses produksinya, ya?",
+          "start": 917.54
+        },
+        {
+          "end": 924.54,
+          "text": "Iya, boleh. Nanti kita ketemu sama Pak Jaru aja.",
+          "start": 920.54
+        },
+        {
+          "end": 927.54,
+          "text": "Siap, kita selesaikan dulu, ini airnya kurang?",
+          "start": 924.54
+        },
+        {
+          "end": 928.54,
+          "text": "Tambahin lagi.",
+          "start": 927.54
+        },
+        {
+          "end": 929.54,
+          "text": "Tambahin lagi boleh?",
+          "start": 928.54
+        },
+        {
+          "end": 930.54,
+          "text": "Iya.",
+          "start": 929.54
+        },
+        {
+          "end": 932.54,
+          "text": "Satu lagi atau cukup?",
+          "start": 930.54
+        },
+        {
+          "end": 933.54,
+          "text": "Satu lagi, sudah cukup.",
+          "start": 932.54
+        },
+        {
+          "end": 934.54,
+          "text": "Satu lagi.",
+          "start": 933.54
+        },
+        {
+          "end": 941.54,
+          "text": "Nah, ini disortir yang mengapung.",
+          "start": 935.54
+        },
+        {
+          "end": 944.54,
+          "text": "Iya, sudah cukup ini.",
+          "start": 941.54
+        },
+        {
+          "end": 946.54,
+          "text": "Pindahin disini.",
+          "start": 945.54
+        },
+        {
+          "end": 950.54,
+          "text": "Siap.",
+          "start": 949.54
+        },
+        {
+          "end": 957.54,
+          "text": "Meminta air yang bersikap enak.",
+          "start": 954.54
+        },
+        {
+          "end": 968.54,
+          "text": "Sip, Kang, kita bawa kita ke pengelolaan selanjutnya.",
+          "start": 963.54
+        },
+        {
+          "end": 970.54,
+          "text": "Oke.",
+          "start": 969.54
+        },
+        {
+          "end": 976.54,
+          "text": "Kita lanjut, kita lanjut, kita lanjut.",
+          "start": 972.54
+        },
+        {
+          "end": 988.54,
+          "text": "Kang, ini kan sudah dicuci, disortir, terus habis itu ngapain?",
+          "start": 984.54
+        },
+        {
+          "end": 991.54,
+          "text": "Ya, kita langsung dijemur, itu sudah disiapin, tempat jemurnya.",
+          "start": 988.54
+        },
+        {
+          "end": 994.54,
+          "text": "Oke, kita langsung jemur.",
+          "start": 991.54
+        },
+        {
+          "end": 997.54,
+          "text": "Kira-kira jemurnya berapa lama, Kang, biasanya?",
+          "start": 994.54
+        },
+        {
+          "end": 1000.54,
+          "text": "Cuacanya bagus, di sekitaran 15 hari.",
+          "start": 997.54
+        },
+        {
+          "end": 1001.54,
+          "text": "Oh, 15 hari.",
+          "start": 1000.54
+        },
+        {
+          "end": 1002.54,
+          "text": "Iya.",
+          "start": 1001.54
+        },
+        {
+          "end": 1007.54,
+          "text": "Ada tanda perubahan bijinya atau gimana ketika dijemur sampai kemudian diangkat?",
+          "start": 1003.54
+        },
+        {
+          "end": 1010.54,
+          "text": "Nanti kita taunya di kulitnya.",
+          "start": 1007.54
+        },
+        {
+          "end": 1013.54,
+          "text": "Kulitnya mengering, ya.",
+          "start": 1011.54
+        },
+        {
+          "end": 1016.54,
+          "text": "Langsung kita taruh sini.",
+          "start": 1014.54
+        },
+        {
+          "end": 1018.54,
+          "text": "Maaf, Pak, dipegangin ini.",
+          "start": 1017.54
+        },
+        {
+          "end": 1019.54,
+          "text": "Oke, boleh.",
+          "start": 1018.54
+        },
+        {
+          "end": 1020.54,
+          "text": "Biar lebih...",
+          "start": 1019.54
+        },
+        {
+          "end": 1025.54,
+          "text": "Nah, gini ya, Kang?",
+          "start": 1024.54
+        },
+        {
+          "end": 1026.54,
+          "text": "Iya, iya, iya.",
+          "start": 1025.54
+        },
+        {
+          "end": 1028.54,
+          "text": "Uish, sudah cocok dida assistannya, Kang.",
+          "start": 1026.54
+        },
+        {
+          "end": 1037.54,
+          "text": "Oke, satu lagi.",
+          "start": 1036.54
+        },
+        {
+          "end": 1038.54,
+          "text": "Oke.",
+          "start": 1037.54
+        },
+        {
+          "end": 1041.54,
+          "text": "Oke.",
+          "start": 1040.54
+        },
+        {
+          "end": 1051.54,
+          "text": "Siap, sudah siap.",
+          "start": 1049.54
+        },
+        {
+          "end": 1056.54,
+          "text": "Sudah rata.",
+          "start": 1055.54
+        },
+        {
+          "end": 1057.54,
+          "text": "Sudah rata?",
+          "start": 1056.54
+        },
+        {
+          "end": 1058.54,
+          "text": "Iya.",
+          "start": 1057.54
+        },
+        {
+          "end": 1060.54,
+          "text": "15 hari ya, Kang, ya?",
+          "start": 1058.54
+        },
+        {
+          "end": 1061.54,
+          "text": "Iya.",
+          "start": 1060.54
+        },
+        {
+          "end": 1064.54,
+          "text": "Kalau bagus cuacanya, mudah-mudahan bagus.",
+          "start": 1061.54
+        },
+        {
+          "end": 1065.54,
+          "text": "Amin.",
+          "start": 1064.54
+        },
+        {
+          "end": 1066.54,
+          "text": "Biar nggak nunggu lama.",
+          "start": 1065.54
+        },
+        {
+          "end": 1067.54,
+          "text": "Siap.",
+          "start": 1066.54
+        },
+        {
+          "end": 1079.54,
+          "text": "Kopi Bantenkidul adalah kopi yang diproses secara alami dan diproses secara tradisional",
+          "start": 1068.54
+        },
+        {
+          "end": 1087.54,
+          "text": "pada seluruh warga yang ada memakai ala turun-temurun secara tradisional.",
+          "start": 1079.54
+        },
+        {
+          "end": 1096.54,
+          "text": "Dan di prosesnya pun melalui rumah-rumah warga dan dijemur melalui alat tradisional.",
+          "start": 1087.54
+        },
+        {
+          "end": 1103.54,
+          "text": "Dan mereka pun memprosesnya menggunakan alat-alat yang sifatnya alami,",
+          "start": 1096.54
+        },
+        {
+          "end": 1112.54,
+          "text": "diantaranya mereka yang rai pakai periuk, menumbuknya pakai keblak",
+          "start": 1103.54
+        },
+        {
+          "end": 1116.54,
+          "text": "yang dibikin dari kayu besar dan pakai lubang,",
+          "start": 1112.54
+        },
+        {
+          "end": 1121.54,
+          "text": "dan ditumbuknya pun pakai kayu-kayu yang sifatnya pilihan,",
+          "start": 1116.54
+        },
+        {
+          "end": 1124.54,
+          "text": "yang namanya itu adalah halu.",
+          "start": 1121.54
+        },
+        {
+          "end": 1161.54,
+          "text": "Bara Api Tak Boleh Padam",
+          "start": 1156.54
+        },
+        {
+          "end": 1164.54,
+          "text": "Bara api tak boleh padam.",
+          "start": 1161.54
+        },
+        {
+          "end": 1168.54,
+          "text": "Begitu aturan desa jagaraksa dijaga.",
+          "start": 1164.54
+        },
+        {
+          "end": 1173.54,
+          "text": "Seakan aturan itu ada sebagai penyambung nafas para pengolah kopi",
+          "start": 1168.54
+        },
+        {
+          "end": 1177.54,
+          "text": "untuk tak direpotkan lagi saat memantik api.",
+          "start": 1173.54
+        },
+        {
+          "end": 1185.54,
+          "text": "Wajib hukumnya bagi warga desa kopi untuk memiliki alat pengolahan tradisional.",
+          "start": 1180.54
+        },
+        {
+          "end": 1190.54,
+          "text": "Seperti Ibu En yang sediakan kuali untuk menyangrai biji kering.",
+          "start": 1185.54
+        },
+        {
+          "end": 1194.54,
+          "text": "Perlu rasa sabar dan rasa awas ketika menyangrai.",
+          "start": 1190.54
+        },
+        {
+          "end": 1199.54,
+          "text": "Karena tiap biji kopi perlu waktu yang tak sama untuk matang.",
+          "start": 1194.54
+        },
+        {
+          "end": 1203.54,
+          "text": "Dan asap mengebul tidak mempermudah proses itu.",
+          "start": 1199.54
+        },
+        {
+          "end": 1210.54,
+          "text": "Proses kelebihan kopi yang ada di Banten,",
+          "start": 1206.54
+        },
+        {
+          "end": 1215.54,
+          "text": "khususnya di Banten Kidul adalah kopi yang murni.",
+          "start": 1210.54
+        },
+        {
+          "end": 1221.54,
+          "text": "Sehingga kopi yang dihasilkan tidak ada campuran dan tidak ada bahan kemiat.",
+          "start": 1215.54
+        },
+        {
+          "end": 1245.54,
+          "text": "Dan sekarang saya sedang berada di Kasepuhan Karang Desa Jagaraksa,",
+          "start": 1241.54
+        },
+        {
+          "end": 1249.54,
+          "text": "Lebak Banten bersama dengan Ibu-ibu pengolah kopi desa.",
+          "start": 1245.54
+        },
+        {
+          "end": 1254.54,
+          "text": "Di sini perjalanan panjang biji kopi dalam proses penumbukan hingga menjadi bubuk.",
+          "start": 1249.54
+        },
+        {
+          "end": 1260.54,
+          "text": "Dan ini menggunakan alat yang masih tradisional bernama halu dan keblak.",
+          "start": 1254.54
+        },
+        {
+          "end": 1264.54,
+          "text": "Kita masih akan lihat proses selanjutnya. Terus ikutin bela.",
+          "start": 1260.54
+        },
+        {
+          "end": 1274.54,
+          "text": "Oke, masih kita bikin. Ini kita mau beli.",
+          "start": 1270.54
+        },
+        {
+          "end": 1289.54,
+          "text": "Pertemuan singkat dengan pekihat kopi mengilhamiku untuk sedikit berbagi apa yang telah ku pelajari.",
+          "start": 1282.54
+        },
+        {
+          "end": 1294.54,
+          "text": "Dibantu oleh ahli di sebuah kedai, aku meracik kopi,",
+          "start": 1289.54
+        },
+        {
+          "end": 1297.54,
+          "text": "untuk kusaji kepada teman yang menanti.",
+          "start": 1294.54
+        },
+        {
+          "end": 1301.54,
+          "text": "Menakar butirnya agar gilingan tetap presisi,",
+          "start": 1297.54
+        },
+        {
+          "end": 1305.54,
+          "text": "menghasilkan serbuk yang menyerbak aroma kopi,",
+          "start": 1301.54
+        },
+        {
+          "end": 1308.54,
+          "text": "mendoberak ruang-ruang sepi.",
+          "start": 1305.54
+        },
+        {
+          "end": 1332.54,
+          "text": "Seiring air panas mengalir, aku menanti tiap-tiap tetes kopi tertuang dalam gelas saji.",
+          "start": 1325.54
+        },
+        {
+          "end": 1337.54,
+          "text": "Karena itulah yang aku pelajari kopi tersaji lewat waktu.",
+          "start": 1332.54
+        },
+        {
+          "end": 1340.54,
+          "text": "Satu proses yang tak bisa diburu.",
+          "start": 1337.54
+        },
+        {
+          "end": 1344.54,
+          "text": "Namun sepadan ketika semua idra terpacu,",
+          "start": 1340.54
+        },
+        {
+          "end": 1346.54,
+          "text": "tertarik untuk mencium harumu,",
+          "start": 1344.54
+        },
+        {
+          "end": 1350.54,
+          "text": "melekatkan senyum lewat secangkir kopi banten.",
+          "start": 1346.54
+        },
+        {
+          "end": 1358.54,
+          "text": "Seiring air panas mengalir,",
+          "start": 1354.54
+        },
+        {
+          "end": 1362.54,
+          "text": "melekatkan serbuk ke dalam gelas saji.",
+          "start": 1358.54
+        },
+        {
+          "end": 1378.54,
+          "text": "Lagi ngobrolin apa nih?",
+          "start": 1375.54
+        },
+        {
+          "end": 1383.54,
+          "text": "Halo, jadi supaya nanti makin enak ngobrolnya,",
+          "start": 1378.54
+        },
+        {
+          "end": 1385.54,
+          "text": "aku buatin kopi.",
+          "start": 1383.54
+        },
+        {
+          "end": 1388.54,
+          "text": "Silahkan dicoba dulu.",
+          "start": 1385.54
+        },
+        {
+          "end": 1391.54,
+          "text": "Boleh, boleh, boleh.",
+          "start": 1388.54
+        },
+        {
+          "end": 1395.54,
+          "text": "Gimana?",
+          "start": 1393.54
+        },
+        {
+          "end": 1397.54,
+          "text": "Enak banget.",
+          "start": 1395.54
+        },
+        {
+          "end": 1400.54,
+          "text": "Setelah melalui proses yang panjang,",
+          "start": 1397.54
+        },
+        {
+          "end": 1405.54,
+          "text": "tak kenal waktu, biji kopi pun menyaru menjadi satu dengan aliran waktu,",
+          "start": 1400.54
+        },
+        {
+          "end": 1411.54,
+          "text": "yang pada akhirnya dia bermuara di setiap cangkir para penikmat dan penggemarnya.",
+          "start": 1405.54
+        },
+        {
+          "end": 1414.54,
+          "text": "Dia pun menyiratkan di setiap sesap dengan pesan",
+          "start": 1411.54
+        },
+        {
+          "end": 1419.54,
+          "text": "yang menyiratkan bahwa kita harus mengingat bagaimana pahitnya kopi",
+          "start": 1414.54
+        },
+        {
+          "end": 1422.54,
+          "text": "dan memaknai bagaimana manisnya memori.",
+          "start": 1419.54
+        },
+        {
+          "end": 1425.54,
+          "text": "Inilah persona secangkir kopi.",
+          "start": 1422.54
+        },
+        {
+          "end": 1428.54,
+          "text": "Inilah persona kopi banten.",
+          "start": 1425.54
+        },
+        {
+          "end": 1443.54,
+          "text": "Terima kasih.",
+          "start": 1441.54
+        }
+      ],
+      "full_text": "INTRO Banten, biasa yang sudah dikenal akan adat budayanya, kebersahajaannya, dan bentang alamnya masih menyembunyikan suatu pesona, sebuah citarasa dari tanaman alami para dewa. Kopi Banten Kidul adalah kopi yang diproses secara alami dan diproses secara tradisional. Sebagai penikmat kopi, pecinta kopi sudah tidak terhitung seberapa banyaknya cangkir kopi yang disesap. Dan berbagai macam jenis rasa yang telah kucoba, tetapi hanya ada satu jenis kopi, satu biji kopi penuh aroma yang mampu membawaku hingga sejauh ini di desa ini. Tentu perjuangan untuk mengenal lebih dalam tentang biji kopi yang penuh dengan aroma, serta mengaitkannya dengan kenangan dan juga perjuangan proses didalamnya. Inilah hasanah Kopi Banten. Kopi Banten Kidul Kopi Banten Kidul Kopi Banten Kidul Aroma kopi menyambutku setibanya di desa Jaga Raksa Muncang, desa yang menasbihkan diri sebagai desa kopi dari Banten Kidul. Desa ajaib yang menyediakan lahan luas Nansubur untuk beragam vegetasi tumbuh dan berkembang, memungkinkan warganya untuk hidup dari panen yang tidak berkekurangan. Desa yang cukup ramah untuk mempersilakanku bernaung di rumah adatnya, berlindung dari hujan sambil mensesap kopi sebelum memulai perjalanan. Kopi Banten Kidul Perjalanan mencari ahli di tengah kampung penuh aroma kopi. Kopi Banten Kidul Nah ini akhirnya ketemu kak Engkos saya, Bella. Pengen belajar soal kopi, saya sudah nanya warga di desa sini. Kalau pengen belajar soal kopi, jago nya kak Engkos. Boleh ya kak ya? Boleh, silahkan duduk dulu kali ya. Wah halatnya udah siap nih. Kalau mau tau rasanya kopi yang ada di desa sini, kita langsung coba rajik saja dulu ya. Siap. Kita timbang dulu ya kopinya. Kak Engkos pun sigap menimbang biji kopi sesuai takarannya. Biji kopi seistimewa ini memang harus diperlakukan dengan selayaknya. Kalau tidak pas, air dan kopinya rasanya juga tidak sesuai. Terus setelah didimbang, baru kita gigi dulu ya. Dihaluskan hingga aromanya menyeruak, seakan berbisik untuk segera diseduh. Udah mulai ringan ya? Udah ringan. Kata dia agak berat gitu kan? Nah ini udah ya. Nah kita tinggang, ini nih kertasnya. Setelah kertas, kita masukin bumbu kopinya ya. Langsung dituang aja. Perlahan, kopi Pait pun menetes dari satu persatu memenuhi gelas tadah untuk siap disajikan. Kang, jadi Bela kesini jauh-jauh emang pengen belajar tentang kopi bantan terpikat nih. Karena kopinya bisa sehas itu. Kita sambil itu, langsung cobain aja ya Kak Bela. Boleh, boleh. Biar tahu rasanya seperti apa. Kita tuang dulu, kita ngopi bareng. Silahkan Kak, dicoba dulu. Rasanya seperti ada rempah, sama ada sensasi buah tropisnya. Ini bisa sehas itu gimana ini Kang? Ini rasa khas kopi ini yang rasanya begitu. Kita dari proses pertama pemilihan biji untuk ditanam, itu mempengaruhi gitu. Terus disini kami pengolahannya pakai pupuk organik. Dan disekitarnya itu ada pohon-pohon buah-buahan tropis seperti pisang. Terus ada kalau ada rempahnya itu cengkeh gitu. Makanya seperti ini rasanya gitu. Jadi maksudnya rasa kopi ini ibaratnya paling beda di antara kopi yang lain. Karena juga dipengaruhi sejak dari pengalaman di awal tadi. Boleh ya kak? Boleh, silahkan. Kang, tadi untuk penyajiannya ini ada trik khusus yang membuat ini paling beda di antara yang lain? Ya ada, kita kalau mau ngeraci kopi sebenarnya harus tahu cuacanya. Kadang kalau ada cuaca dingin kita agak dipanaskan, lebih panas. Kalau cuaca lagi panas kita agak tarik dinginnya. Biar sensasi kopi ini keluar gitu. Jadi sebenarnya cuaca itu juga mempengaruhi bagaimana penyajian? Mempengaruhi, buat terasa itu. Karena air dan kopi ini dia harus benar-benar kesimbang. Siap, mantap. Kang, boleh dong kalau mau lihat tanamannya? Ya boleh, silahkan ada teman saya di bukit gunung sana. Oh, langsung aja? Langsung aja silahkan. Langsung ketemu di sana? Langsung ketemu sama Kang Ebeng. Siap, balang itu belom mau ketemu sama Kang Ebeng. Terima kasih kak Mkol sudah diajarin. Saya juga mau langsung ketemu sama Kang Ebeng. Siap, terima kasih. Sama-sama kak. Tujuanku berikutnya adalah bukit di belakang kampung Jaga Raksa. Namun sebelum sempat mendaki perhatian-perhatian dari Tujuan ku berikutnya adalah bukit di belakang kampung Jaga Raksa. Namun, sebelum sempat mendaki perhatian ku teralih ke satu saung di kaki gunung bertitel Sikinujadi alias Benih Yang Tumbuh. Sebuah frasa yang menjadi harap bagi para petani. Digerakkan oleh para pemuda, tempat ini menjadi salah satu elemen penting untuk kultur kopi di kampung ini. Sikinujadi menjadi swaka untuk benih-benih kopi tumbuh di tengah kampung kopi. Dua varietas utama tumbuh di sini. Kopi Arabika dan Robusta hidup beriringan. Di sini, petani kopi dengan telaten merawat benih yang ada. Diperlakukan selayaknya anak, dilindungi dari ancaman, diberikan nutrisi, doa, dan puja-puji. Seakan menjawab biji kopi Arabika dapat tumbuh subur di desa Jaga Raksa ini. Di dataran yang relatif rendah, kurang dari 800 meter di atas permukaan laut. Dan para petani ini dapat sedikit berbangga atas jari payah mereka melestarikan kopi di tanah ajaib ini. Perjalanan saya hari ini membawa di desa Jaga Raksa. Ini adalah satu dari petani yang diperlakukan. Pertama, kita akan menggunakan perjalanan yang diperlakukan. Pertama, kita akan menggunakan perjalanan yang diperlakukan. Perjalanan saya hari ini membawa di desa Jaga Raksa, Lebak Banten. Saat ini saya sudah bersama dengan petani kopi, yang kopinya pun sudah saya nikmati dan memiliki ciri khas. Sudah bersama saya, Kang Ebeng, seorang petani kopi. Yang saya juga penasaran, kalau bagi Kang Ebeng, kopi itu memaknainya seperti apa, Kang? Oke, kalau saya memaknainya seperti anak lah. Menarik ini, seperti anak. Ya, karena saya selalu merawat dan melihat, menengok setiap hari apa kebutuhannya dia. Mungkin seperti itu. Tapi kalau bicara kopi, biasanya setiap bagiannya itu kan juga butuh perawatan, yang kalau perawatannya tidak diperhatikan dengan baik akan mempengaruhi rasa. Kalau di kopi Jaga Raksa ini, Kang Ebeng, boleh dibagikan ini seperti apa, Kang? Untuk kami, kami menggunakan pupuk domba, peturan domba. Artinya dengan sistem, bisa dikatakan organik lah. Mungkin yang lebih isilahnya membawa rasanya beda itu kami tidak menggunakan pupuk yang lain, istilahnya begitu, atau kimia. Mungkin seperti itu. Cirinya sehatnya itu seperti apa, Kang? Dari tandanya-tandanya mana, Kang? Yang sehat ini yang tidak kena penyakit atau hama. Dari bijinya ini? Iya. Dan si merahnya ini, misalnya dikatakan sempurna. Kalau yang kena hama itu seperti kena kutu, banyak yang hitam-hitam. Misalnya seperti ini. Seperti ini ya, Kang? Enggak. Kayak misalnya gini. Ini. Tapi ini sudah tergeluangi oleh kami karena sudah melakukan penyemprotan. Ada tips khusus, Kang? Kalau misalkan menanam biji kopi, perawatannya, dan lain-lain, Kang? Ya, kalau tipsnya dari saya adalah usahakan pertama menanam kopi ini jangan terlalu dalamlah. Untuk bibitnya, mungkin seperti itu. Kalau terlalu dalam, akibatnya cacing itu akan semakin cacing nematoda untuk yang diakar maksudnya. Akan semakin menjadinya atau banyak. Apalagi curah hujan yang terlalu tinggi, menjadikan lembar. Usahakan 20 cm saja untuk lubang dan 20 cm-nya persegi. Kedalaman 20 cm, misalnya seperti itu. Terima kasih, Kang. Ini informasinya menarik. Tapi boleh nggak, Kang, kalau saya juga diajarin cara memetik kopinya? Tadi termasuk ada kematangan tertentu, warna tertentu. Boleh nggak, Kang? Boleh, ayo. Siap. Setelah mempelajari sedikit ilmunya, asat tak cukup muncul untuk para petani yang piawai memetik biji kopi. Mereka begitu lihai dan cekatan memilah biji terbaik jaga raksa. Dalam sekali panen, para petani sanggup mengumpulkan berkilo biji kopi untuk dikumpulkan dan diproses kembali di desa. Terima kasih, Kang. Kang, ini biji kopinya mau diapain, Kang? Ini mau dicuci. Cuci, oke. Disortil yang bagus apa yang nggak, gimana kita nanti akan tahu sendiri. Oke, ini bentar. Ini lewatnya mana, nih, Kang? Sini aja. Sini. Ini, Kang, duluan, Kang. Ini memang biji kopi, kan? Ini memang biasa cucinya di sini, atau gimana, Kang? Iya, udah biasa di sumber matahir ini. Wow, bending ya airnya, ya? Iya, bending. Oke, Kang, ini digimanain dulu, Kang? Oke, pertama saya pilih ini dulu. Oke. Buka tali. Siap. Berarti nanti airnya, ini ngambil dari sini? Oke. Saya bantu ambil airnya, siap. Oke. Oke, Kang, terus habis ini yang disortir, yang gimana ini? Ini yang disortir yang rambang, dipisahin, kita jemur, artinya keringin dan dibawa ke rumah produksi aja. Oke, sambil mungkin disortir, ya, Kang, ya? Iya. Berarti nanti boleh ya setelah ini lihat proses produksinya, ya? Iya, boleh. Nanti kita ketemu sama Pak Jaru aja. Siap, kita selesaikan dulu, ini airnya kurang? Tambahin lagi. Tambahin lagi boleh? Iya. Satu lagi atau cukup? Satu lagi, sudah cukup. Satu lagi. Nah, ini disortir yang mengapung. Iya, sudah cukup ini. Pindahin disini. Siap. Meminta air yang bersikap enak. Sip, Kang, kita bawa kita ke pengelolaan selanjutnya. Oke. Kita lanjut, kita lanjut, kita lanjut. Kang, ini kan sudah dicuci, disortir, terus habis itu ngapain? Ya, kita langsung dijemur, itu sudah disiapin, tempat jemurnya. Oke, kita langsung jemur. Kira-kira jemurnya berapa lama, Kang, biasanya? Cuacanya bagus, di sekitaran 15 hari. Oh, 15 hari. Iya. Ada tanda perubahan bijinya atau gimana ketika dijemur sampai kemudian diangkat? Nanti kita taunya di kulitnya. Kulitnya mengering, ya. Langsung kita taruh sini. Maaf, Pak, dipegangin ini. Oke, boleh. Biar lebih... Nah, gini ya, Kang? Iya, iya, iya. Uish, sudah cocok dida assistannya, Kang. Oke, satu lagi. Oke. Oke. Siap, sudah siap. Sudah rata. Sudah rata? Iya. 15 hari ya, Kang, ya? Iya. Kalau bagus cuacanya, mudah-mudahan bagus. Amin. Biar nggak nunggu lama. Siap. Kopi Bantenkidul adalah kopi yang diproses secara alami dan diproses secara tradisional pada seluruh warga yang ada memakai ala turun-temurun secara tradisional. Dan di prosesnya pun melalui rumah-rumah warga dan dijemur melalui alat tradisional. Dan mereka pun memprosesnya menggunakan alat-alat yang sifatnya alami, diantaranya mereka yang rai pakai periuk, menumbuknya pakai keblak yang dibikin dari kayu besar dan pakai lubang, dan ditumbuknya pun pakai kayu-kayu yang sifatnya pilihan, yang namanya itu adalah halu. Bara Api Tak Boleh Padam Bara api tak boleh padam. Begitu aturan desa jagaraksa dijaga. Seakan aturan itu ada sebagai penyambung nafas para pengolah kopi untuk tak direpotkan lagi saat memantik api. Wajib hukumnya bagi warga desa kopi untuk memiliki alat pengolahan tradisional. Seperti Ibu En yang sediakan kuali untuk menyangrai biji kering. Perlu rasa sabar dan rasa awas ketika menyangrai. Karena tiap biji kopi perlu waktu yang tak sama untuk matang. Dan asap mengebul tidak mempermudah proses itu. Proses kelebihan kopi yang ada di Banten, khususnya di Banten Kidul adalah kopi yang murni. Sehingga kopi yang dihasilkan tidak ada campuran dan tidak ada bahan kemiat. Dan sekarang saya sedang berada di Kasepuhan Karang Desa Jagaraksa, Lebak Banten bersama dengan Ibu-ibu pengolah kopi desa. Di sini perjalanan panjang biji kopi dalam proses penumbukan hingga menjadi bubuk. Dan ini menggunakan alat yang masih tradisional bernama halu dan keblak. Kita masih akan lihat proses selanjutnya. Terus ikutin bela. Oke, masih kita bikin. Ini kita mau beli. Pertemuan singkat dengan pekihat kopi mengilhamiku untuk sedikit berbagi apa yang telah ku pelajari. Dibantu oleh ahli di sebuah kedai, aku meracik kopi, untuk kusaji kepada teman yang menanti. Menakar butirnya agar gilingan tetap presisi, menghasilkan serbuk yang menyerbak aroma kopi, mendoberak ruang-ruang sepi. Seiring air panas mengalir, aku menanti tiap-tiap tetes kopi tertuang dalam gelas saji. Karena itulah yang aku pelajari kopi tersaji lewat waktu. Satu proses yang tak bisa diburu. Namun sepadan ketika semua idra terpacu, tertarik untuk mencium harumu, melekatkan senyum lewat secangkir kopi banten. Seiring air panas mengalir, melekatkan serbuk ke dalam gelas saji. Lagi ngobrolin apa nih? Halo, jadi supaya nanti makin enak ngobrolnya, aku buatin kopi. Silahkan dicoba dulu. Boleh, boleh, boleh. Gimana? Enak banget. Setelah melalui proses yang panjang, tak kenal waktu, biji kopi pun menyaru menjadi satu dengan aliran waktu, yang pada akhirnya dia bermuara di setiap cangkir para penikmat dan penggemarnya. Dia pun menyiratkan di setiap sesap dengan pesan yang menyiratkan bahwa kita harus mengingat bagaimana pahitnya kopi dan memaknai bagaimana manisnya memori. Inilah persona secangkir kopi. Inilah persona kopi banten. Terima kasih.",
+      "duration_sec": 1442.97
+    },
+    "SUMMARY": {
+      "summary": "Video ini mendokumentasikan perjalanan ke Desa Jaga Raksa, Banten Kidul, untuk mengenal Kopi Banten Kidul secara lebih dalam. Host belajar proses pengolahan kopi dari Kak Engkos, mencicipi kopi dengan cita rasa rempah dan buah tropis, lalu menemui petani Kang Ebeng untuk memahami budidaya, perawatan, dan panen kopi Arabika serta Robusta secara organik."
+    },
+    "KEYWORDS": {
+      "keywords": [
+        "Kopi Banten Kidul",
+        "Desa Jaga Raksa",
+        "Banten Kidul",
+        "Kopi Arabika",
+        "Kopi Robusta",
+        "pengolahan kopi",
+        "petani kopi",
+        "pertanian organik",
+        "cita rasa kopi",
+        "perjalanan"
+      ]
+    },
+    "CLASSIFICATION": {
+      "category": "Dokumenter"
+    },
+    "OCR": {
+      "raw_text": "AA SN Ann ee erent Melati oiy SN TA Acne TIE LI ar I Sean An\nSo RE ae EE ee ae nen SOME hilo HES is AR nn yg Ele Se ie SCO neal a\nAT NYA ae ESA SAMA Ta KA aa aa, TA STAN AN NN pa ME ne RIED aa\nOS en Pa PES FA aa Na ANN LA NADA ie ree LAN AI Beg AA SA\n\nPREETI TES ana ES Ti AP LP PEN ee LAN TO RE MAY, MA De NE RNS SENS DA Lag, SMe ae AA AE AS PA\nNK PN Na DI ay an RR Sa PU PENA NP PA an MP Wa SU eR NSE AN bh See RP NS Sto",
+      "presenter": {
+        "name": null,
+        "role": null
+      },
+      "sampled_count": 5,
+      "best_timestamp_sec": 1010.072
+    }
+  },
+  "human_judgment": {
+    "reviewer": "azkawahyu",
+    "reviewed_at": "2026-10-16",
+    "summary_score": null,
+    "keyword_precision": null,
+    "keyword_recall": null,
+    "category_match": null,
+    "transcript_wer": null,
+    "ocr_match": null,
+    "notes": "Qualitative review of the existing run (all five stages). No numeric scores or ground-truth labels were provided, so none are recorded.\n- TRANSCRIPTION: good overall.\n- SUMMARY: good overall, but should be longer and clearer (explain the video's content and important details more thoroughly).\n- KEYWORDS: good overall.\n- CLASSIFICATION: good overall.\n- OCR: incorrect and requires improvement."
+  }
+}

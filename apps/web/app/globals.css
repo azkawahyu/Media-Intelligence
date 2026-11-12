@@ -1,0 +1,51 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f6f8; color: #17212b; font-family: Arial, sans-serif; }
+a { color: #145da0; }
+main { max-width: 1200px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+h1, h2 { margin-top: 0; }
+.card { background: white; border: 1px solid #d9e0e7; border-radius: 8px; padding: 1.25rem; margin: 1rem 0; box-shadow: 0 1px 2px #0000000b; }
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+button { border: 0; border-radius: 5px; padding: .6rem 1rem; background: #145da0; color: white; font-weight: 600; cursor: pointer; }
+button:disabled { background: #9aa6b2; cursor: not-allowed; }
+.notice { margin: .75rem 0; padding: .7rem; border-radius: 5px; background: #eaf2fb; }
+.error { color: #9b1c1c; background: #fff0f0; }
+.success { color: #166534; background: #ecfdf3; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 850px; }
+th, td { text-align: left; padding: .7rem .5rem; border-bottom: 1px solid #e5eaf0; vertical-align: top; }
+th { font-size: .82rem; color: #52606d; }
+.path { color: #52606d; font-size: .88rem; max-width: 260px; overflow-wrap: anywhere; }
+.badge { display: inline-block; padding: .2rem .45rem; border-radius: 999px; background: #eef1f4; font-size: .78rem; font-weight: 600; }
+.badge.ready, .badge.completed { background: #dcfce7; color: #166534; }
+.badge.failed { background: #fee2e2; color: #991b1b; }
+.badge.running, .badge.pending { background: #fef3c7; color: #92400e; }
+.badge.cancelled { background: #e5e7eb; color: #374151; }
+.badge.processing { background: #dbeafe; color: #1e40af; }
+.danger { background: #b91c1c; }
+.danger:disabled { background: #9aa6b2; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .8rem; }
+dt { color: #52606d; font-size: .85rem; margin-bottom: .2rem; }
+dd { margin: 0 0 .75rem; overflow-wrap: anywhere; }
+pre { overflow: auto; padding: 1rem; background: #17212b; color: #f8fafc; border-radius: 5px; font-size: .82rem; }
+.pagination { display: flex; justify-content: space-between; margin-top: 1rem; align-items: center; }
+
+/* AI enrichment progress: data-driven staged bar (ADR-006 stage set). */
+.ai-progress { margin: .6rem 0 1rem; }
+.ai-progress-head { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; font-size: .85rem; color: #52606d; margin-bottom: .35rem; }
+.ai-progress-track { position: relative; height: 10px; border-radius: 999px; background: #eef1f4; overflow: hidden; }
+.ai-progress-fill { height: 100%; border-radius: 999px; background: #145da0; transition: width .4s ease; }
+/* Completed portion is solid; the in-flight segment animates so the bar looks
+   "working" while PROCESSING instead of frozen. */
+.ai-progress-fill.active { background-image: linear-gradient(45deg, #145da0 25%, #2f7dc4 25%, #2f7dc4 50%, #145da0 50%, #145da0 75%, #2f7dc4 75%); background-size: 1rem 1rem; animation: ai-stripes .9s linear infinite; }
+.ai-progress-fill.indeterminate { width: 100%; background-image: linear-gradient(90deg, #eef1f4 0%, #145da0 40%, #145da0 60%, #eef1f4 100%); background-size: 40% 100%; background-repeat: no-repeat; animation: ai-sweep 1.3s ease-in-out infinite; }
+.ai-progress-steps { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+.ai-step { font-size: .74rem; font-weight: 600; padding: .15rem .45rem; border-radius: 999px; background: #eef1f4; color: #52606d; }
+.ai-step.done { background: #dcfce7; color: #166534; }
+.ai-step.active { background: #fef3c7; color: #92400e; animation: ai-pulse 1.2s ease-in-out infinite; }
+.ai-step.failed { background: #fee2e2; color: #991b1b; }
+@keyframes ai-stripes { from { background-position: 0 0; } to { background-position: 1rem 0; } }
+@keyframes ai-sweep { 0% { background-position: -40% 0; } 100% { background-position: 140% 0; } }
+@keyframes ai-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) {
+  .ai-progress-fill.active, .ai-progress-fill.indeterminate, .ai-step.active { animation: none; }
+}

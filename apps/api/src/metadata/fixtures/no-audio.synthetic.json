@@ -1,0 +1,20 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mp4",
+    "duration": "8.5",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "h264",
+      "width": 320,
+      "height": 240,
+      "r_frame_rate": "25",
+      "pix_fmt": "yuv420p"
+    }
+  ]
+}

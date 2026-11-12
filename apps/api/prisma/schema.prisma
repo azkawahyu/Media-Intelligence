@@ -1,0 +1,168 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MediaStatus {
+  ACTIVE
+  MISSING
+}
+
+enum MetadataStatus {
+  PENDING
+  PROCESSING
+  READY
+  FAILED
+}
+
+enum ErrorStage {
+  VALIDATION
+  FFPROBE
+  NORMALIZATION
+  PERSISTENCE
+}
+
+enum ScanJobStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  COMPLETED_WITH_ERRORS
+  FAILED
+}
+
+enum AiStatus {
+  PENDING
+  PROCESSING
+  READY
+  FAILED
+  SKIPPED
+  CANCELLED
+}
+
+enum AiStage {
+  TRANSCRIPTION
+  SUMMARY
+  KEYWORDS
+  CLASSIFICATION
+  OCR
+}
+
+enum AiStageStatus {
+  READY
+  FAILED
+}
+
+model Storage {
+  id         String      @id @default(cuid())
+  name       String      @unique
+  rootPath   String
+  enabled    Boolean     @default(true)
+  createdAt  DateTime    @default(now()) @db.Timestamptz(6)
+  updatedAt  DateTime    @updatedAt @db.Timestamptz(6)
+  mediaFiles MediaFile[]
+  scanJobs   ScanJob[]
+}
+
+model MediaFile {
+  id                      String         @id @default(cuid())
+  storageId               String
+  relativePath            String
+  filename                String
+  extension               String
+  fileSize                BigInt         @db.BigInt
+  modifiedAt              DateTime       @db.Timestamptz(6)
+  status                  MediaStatus    @default(ACTIVE)
+  metadataStatus          MetadataStatus @default(PENDING)
+  durationSeconds         Float?
+  videoCodec              String?
+  width                   Int?
+  height                  Int?
+  frameRateNumerator      Int?
+  frameRateDenominator    Int?
+  audioCodec              String?
+  audioSampleRate         Int?
+  audioChannels           Int?
+  technicalMetadata       Json?
+  rawProbeData            Json?
+  firstSeenAt             DateTime       @db.Timestamptz(6)
+  lastSeenAt              DateTime       @db.Timestamptz(6)
+  lastSeenScanId          String
+  lastMetadataExtractedAt DateTime?      @db.Timestamptz(6)
+  errorCode               String?
+  errorMessage            String?
+  errorStage              ErrorStage?
+  errorAt                 DateTime?      @db.Timestamptz(6)
+  retryCount              Int            @default(0)
+  // AI enrichment lifecycle (ADR-006). Separate from metadataStatus; AI never
+  // writes metadataStatus and vice-versa. All columns are additive: existing
+  // rows default to PENDING / 0 (AGENTS.md §32).
+  aiStatus                AiStatus       @default(PENDING)
+  aiPartial               Boolean        @default(false)
+  aiAttempt               Int            @default(0)
+  aiExternalJobId         String?
+  aiErrorCode             String?
+  aiErrorMessage          String?
+  aiErrorAt               DateTime?      @db.Timestamptz(6)
+  aiProcessedAt           DateTime?      @db.Timestamptz(6)
+  // Durable cancellation intent (ADR-006 §18). Set when a stop is requested on
+  // a PROCESSING row; the runner observes it, stops before the next stage, and
+  // finalizes CANCELLED. Persisted (not in-memory) so it survives an API
+  // restart. Cleared atomically by a manual reprocess.
+  aiCancelRequestedAt     DateTime?      @db.Timestamptz(6)
+  createdAt               DateTime       @default(now()) @db.Timestamptz(6)
+  updatedAt               DateTime       @updatedAt @db.Timestamptz(6)
+  storage                 Storage        @relation(fields: [storageId], references: [id])
+  aiResults               AiResult[]
+
+  @@unique([storageId, relativePath])
+  @@index([metadataStatus])
+  @@index([aiStatus])
+  @@index([storageId, status])
+}
+
+// Per-stage AI result rows (ADR-006 §8). Upserted on (mediaFileId, stage) so
+// restarts and re-runs cannot produce duplicates, and partial success is
+// representable (a failed later stage leaves earlier READY rows in place).
+model AiResult {
+  id           String        @id @default(cuid())
+  mediaFileId  String
+  stage        AiStage
+  status       AiStageStatus
+  payload      Json?
+  errorCode    String?
+  errorMessage String?
+  attemptedAt  DateTime      @db.Timestamptz(6)
+  createdAt    DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime      @updatedAt @db.Timestamptz(6)
+  mediaFile    MediaFile     @relation(fields: [mediaFileId], references: [id], onDelete: Cascade)
+
+  @@unique([mediaFileId, stage])
+  @@index([mediaFileId])
+}
+
+model ScanJob {
+  id                   String        @id @default(cuid())
+  storageId            String
+  status               ScanJobStatus @default(PENDING)
+  startedAt            DateTime      @db.Timestamptz(6)
+  discoveryCompletedAt DateTime?     @db.Timestamptz(6)
+  completedAt          DateTime?     @db.Timestamptz(6)
+  discoveredCount      Int           @default(0)
+  newCount             Int           @default(0)
+  updatedCount         Int           @default(0)
+  unchangedCount       Int           @default(0)
+  missingCount         Int           @default(0)
+  queuedCount          Int           @default(0)
+  processedCount       Int           @default(0)
+  failedCount          Int           @default(0)
+  errorMessage         String?
+  createdAt            DateTime      @default(now()) @db.Timestamptz(6)
+  updatedAt            DateTime      @updatedAt @db.Timestamptz(6)
+  storage              Storage       @relation(fields: [storageId], references: [id])
+
+  @@index([storageId, status])
+}

@@ -1,0 +1,11 @@
+packages:
+  - apps/*
+
+# pnpm 11 build-script approval: esbuild (Vitest's bundler) and Prisma's
+# engines need their install scripts.
+allowBuilds:
+  '@prisma/client': true
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true
+  unrs-resolver: true

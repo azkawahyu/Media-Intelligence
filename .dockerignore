@@ -1,0 +1,29 @@
+# Phase 9: keep Docker build contexts small and free of secrets/user files.
+# Context for both images is the repository root (pnpm workspace).
+
+**/node_modules
+**/.next
+**/dist
+**/.turbo
+**/tsconfig.tsbuildinfo
+**/*.log
+
+# Never bake user configuration or secrets into images or build context.
+.env
+.env.*
+!.env.example
+
+# Version control and local tooling
+.git
+.gitignore
+
+# Documentation and planning artifacts (not needed at build time)
+docs
+*.md
+!README.md
+
+# Test artifacts (temp media, test databases, tmip_test dumps)
+tmip_test*
+**/tmp
+**/.vitest
+**/coverage

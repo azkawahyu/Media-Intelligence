@@ -1,0 +1,27 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "matroska,webm",
+    "duration": "91.125",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "hevc",
+      "profile": "Main 10",
+      "width": 3840,
+      "height": 2160,
+      "r_frame_rate": "60000/1001",
+      "pix_fmt": "yuv420p10le"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "opus",
+      "sample_rate": "48000",
+      "channels": 6
+    }
+  ]
+}

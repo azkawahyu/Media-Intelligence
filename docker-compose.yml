@@ -1,0 +1,135 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tmip-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-tmip}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tmip}
+      POSTGRES_DB: ${POSTGRES_DB:-tmip}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tmip} -d ${POSTGRES_DB:-tmip}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    container_name: tmip-api
+    restart: unless-stopped
+    environment:
+      # Container-visible media root. This is a CONTAINER path, not a host path;
+      # it always matches the bind-mount target below (/media) and
+      # Storage.rootPath (ADR-002 read-only storage, ADR-006 §9).
+      MEDIA_ROOT: /media
+      FFPROBE_PATH: /usr/bin/ffprobe
+      # The .env DATABASE_URL points at localhost (host dev). Inside the
+      # compose network the database is the `postgres` service hostname.
+      DATABASE_URL: postgresql://${POSTGRES_USER:-tmip}:${POSTGRES_PASSWORD:-tmip}@postgres:5432/${POSTGRES_DB:-tmip}
+      STORAGE_NAME: ${STORAGE_NAME:-Server B Media}
+      WEB_ORIGIN: ${WEB_ORIGIN:-http://localhost:3000}
+      METADATA_WORKER_CONCURRENCY: ${METADATA_WORKER_CONCURRENCY:-1}
+      METADATA_MAX_RETRIES: ${METADATA_MAX_RETRIES:-2}
+      METADATA_RETRY_BACKOFF_MS: ${METADATA_RETRY_BACKOFF_MS:-250}
+      SUPPORTED_MEDIA_EXTENSIONS: ${SUPPORTED_MEDIA_EXTENSIONS:-.mp4,.mov,.mxf,.mpg,.mpeg,.avi,.mkv,.ts,.mts}
+      # AI enrichment (ADR-006). Disabled by default; the AI Processor is reached
+      # over the internal compose network only. OPENROUTER_API_KEY is never set
+      # here — the processor reads it from its own runtime environment.
+      AI_ENABLED: ${AI_ENABLED:-false}
+      AI_PROCESSOR_URL: http://ai-processor:8000
+      AI_MODEL_SIZE: ${AI_MODEL_SIZE:-medium}
+      AI_LANGUAGE: ${AI_LANGUAGE:-id}
+      AI_CONCURRENCY: ${AI_CONCURRENCY:-1}
+      AI_MAX_RETRIES: ${AI_MAX_RETRIES:-2}
+      AI_RETRY_BACKOFF_MS: ${AI_RETRY_BACKOFF_MS:-5000}
+      AI_REQUEST_TIMEOUT_MS: ${AI_REQUEST_TIMEOUT_MS:-30000}
+      AI_POLL_INTERVAL_MS: ${AI_POLL_INTERVAL_MS:-10000}
+      AI_STAGE_TIMEOUT_MS: ${AI_STAGE_TIMEOUT_MS:-900000}
+      AI_JOB_DEADLINE_MS: ${AI_JOB_DEADLINE_MS:-5400000}
+    ports:
+      - "4000:4000"
+    volumes:
+      # READ-ONLY bind mount of the HOST media directory. The source is
+      # MEDIA_HOST_PATH (a host filesystem path, e.g. D:/DEVELOP/Media or
+      # /mnt/tmip-media) — NOT MEDIA_ROOT, which is the container-visible path
+      # (/media). Quoted so Windows drive paths are parsed safely.
+      # The api container must never be able to write to source media.
+      - "${MEDIA_HOST_PATH}:/media:ro"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      # service_started (not service_healthy): a slow first model download must
+      # not block the API. The runner tolerates an unavailable processor as a
+      # TRANSIENT failure (ADR-006 §10).
+      ai-processor:
+        condition: service_started
+
+  # AI Processor (ADR-006, docs/plans/006-ai-processor-integration.md §6).
+  # Python/FastAPI service owning the heavy ML deps (Whisper/Torch/OpenCV).
+  # INTERNAL ONLY: the port is exposed to the compose network, never published
+  # to the host. The media mount is read-only, identical to the api service.
+  ai-processor:
+    build:
+      context: ./ai-processor
+      dockerfile: Dockerfile
+    container_name: tmip-ai
+    restart: unless-stopped
+    environment:
+      # LLM provider config (ADR-006 §11). Generic LLM_* names take precedence;
+      # OPENROUTER_* is kept for backward compatibility with existing setups.
+      # LLM_BASE_URL may point at any OpenAI-compatible /chat/completions API.
+      # The key is a runtime-only secret: never committed, never baked into the
+      # image. An empty value degrades the LLM stages gracefully.
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://openrouter.ai/api/v1}
+      LLM_API_KEY: ${LLM_API_KEY:-${OPENROUTER_API_KEY:-}}
+      LLM_MODEL: ${LLM_MODEL:-${OPENROUTER_MODEL:-deepseek/deepseek-chat}}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-deepseek/deepseek-chat}
+      # Containment root for defense-in-depth path checks (ADR-006 §9).
+      MEDIA_ROOT: /media
+      # Persist model weights across restarts (ADR-006 §10).
+      HF_HOME: /model-cache
+    expose:
+      - "8000"                # internal only — NOT published to host
+    volumes:
+      # Same HOST source as the api service (MEDIA_HOST_PATH), mounted read-only
+      # at the container path /media. Never MEDIA_ROOT here: that is the
+      # container path, not the host bind source.
+      - "${MEDIA_HOST_PATH}:/media:ro"     # read-only, same source as api
+      - ai-model-cache:/model-cache
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3).status==200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        # Build-time/public env: inlined into the browser bundle.
+        # Changing it requires rebuilding the web image.
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:4000}
+    container_name: tmip-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    environment:
+      HOSTNAME: 0.0.0.0
+
+volumes:
+  postgres-data:
+  # Persisted Whisper/CLIP/YOLO model weights (ADR-006 §10): not a secret, not
+  # media, so weights survive restarts and are not re-downloaded.
+  ai-model-cache:

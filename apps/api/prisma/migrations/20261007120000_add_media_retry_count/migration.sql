@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "MediaFile" ADD COLUMN "retryCount" INTEGER NOT NULL DEFAULT 0;

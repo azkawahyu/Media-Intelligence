@@ -1,0 +1,26 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mpeg",
+    "duration": "45.25",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "mpeg2video",
+      "width": 720,
+      "height": 576,
+      "r_frame_rate": "25/1",
+      "pix_fmt": "yuv420p"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "mp2",
+      "sample_rate": "48000",
+      "channels": 2
+    }
+  ]
+}

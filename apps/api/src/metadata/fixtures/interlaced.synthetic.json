@@ -1,0 +1,27 @@
+{
+  "format": {
+    "filename": "synthetic",
+    "format_name": "mpegts",
+    "duration": "30.0",
+    "tags": {
+      "fixture": "synthetic"
+    }
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "codec_name": "mpeg2video",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "30000/1001",
+      "pix_fmt": "yuv422p",
+      "field_order": "tt"
+    },
+    {
+      "codec_type": "audio",
+      "codec_name": "mp2",
+      "sample_rate": "48000",
+      "channels": 2
+    }
+  ]
+}

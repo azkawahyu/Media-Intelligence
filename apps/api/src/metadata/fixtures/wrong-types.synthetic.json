@@ -1,0 +1,14 @@
+{
+  "format": {
+    "duration": 12.5,
+    "format_name": "mp4"
+  },
+  "streams": [
+    {
+      "codec_type": "video",
+      "width": "1920",
+      "height": 1080,
+      "r_frame_rate": "25"
+    }
+  ]
+}
