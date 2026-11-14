@@ -16,200 +16,84 @@ STORE
 DISPLAY
 ```
 
-TMIP runs on Server A and reads video files from Server B through mounted read-only storage.
+TMIP runs on Server A and reads video files from Server B through mounted read-only storage. It is designed to support recurring incremental scans so that newly added or modified media files can be processed without unnecessarily reprocessing unchanged files.
 
-It is designed to support recurring incremental scans so that newly added or modified media files can be processed without unnecessarily reprocessing unchanged files.
+## What This App Does
 
-## Current Scope
+- **Discover** — recursively scans the mounted media storage for video files (`.mp4`, `.mov`, `.mxf`, `.mpg`, `.mpeg`, `.avi`, `.mkv`, `.ts`, `.mts` by default)
+- **Detect change** — incremental scanning identifies new, changed, unchanged, and missing files so only what changed gets reprocessed
+- **Extract metadata** — ffprobe pulls technical metadata (duration, codecs, resolution, frame rate, bit rate, pixel format, audio layout, container info) in a background worker
+- **Store** — everything is persisted in PostgreSQL (Prisma-managed schema, JSONB for flexible metadata)
+- **Display** — a Next.js web UI shows the media inventory, metadata details, scan progress, and AI enrichment results
 
-TMIP v1 focuses on:
+## Tech Stack
 
-- recursive video file discovery
-- incremental scanning
-- new file detection
-- changed file detection
-- unchanged file skipping
-- missing file detection
-- technical metadata extraction using ffprobe
-- PostgreSQL metadata persistence
-- flexible metadata storage using JSONB
-- background metadata processing
-- bounded automatic retry of transient extraction failures
-- manual metadata reprocessing
-- scan progress tracking
-- basic media inventory and metadata viewing
+| Layer | Technology |
+|---|---|
+| API | Node.js, TypeScript, Express 5, Zod |
+| Web UI | Next.js 15, React 19, TypeScript |
+| Database | PostgreSQL 16, Prisma ORM |
+| Metadata extraction | FFmpeg / ffprobe |
+| AI enrichment (optional) | Python, FastAPI, faster-whisper (transcription), Tesseract (lower-third OCR), any [OI]-compatible LLM API (summary/keywords/classification) |
+| Infrastructure | Docker, Docker Compose |
 
-## Technical Metadata
+Note: TMIP v1 does **not** use Redis or BullMQ — orchestration of metadata and AI jobs is PostgreSQL-backed (see `ADR/ADR-006`).
 
-TMIP may extract metadata such as:
+## Requirements
 
-- filename
-- relative path
-- file size
-- modified timestamp
-- duration
-- video codec
-- resolution
-- frame rate
-- bit rate
-- pixel format
-- audio codec
-- sample rate
-- audio channels
-- container information
+- Docker + Docker Compose (primary runtime mode), or Node.js 20+, pnpm, PostgreSQL and ffprobe for host development
+- Access to the media storage as a host filesystem path (read-only)
+- For AI enrichment: an [OI]-compatible LLM API key (e.g. OpenRouter)
 
-Raw ffprobe metadata may also be preserved for future use.
+## Step-by-Step Usage
 
-## Architecture
+### 1. Configure the environment
 
-```text
-Server B
-Video Storage
-    │
-    │ SMB / NFS
-    ▼
-Server A
-Read-Only Mounted Storage
-    │
-    ▼
-Docker
-    │
-    ├── Next.js Web
-    ├── Express API
-    ├── Scanner
-    ├── BullMQ / Redis
-    ├── Metadata Worker
-    │      └── ffprobe
-    └── PostgreSQL
+Copy `.env.example` to `.env` and set at minimum:
+
+```dotenv
+# Host path to your video storage (used ONLY as the read-only bind-mount source)
+MEDIA_HOST_PATH=D:/DEVELOP/Media        # or /mnt/tmip-media on Server A
+STORAGE_NAME=Server B Media
+
+# Postgres credentials (defaults: tmip/tmip/tmip)
+POSTGRES_USER=tmip
+POSTGRES_PASSWORD=tmip
+POSTGRES_DB=tmip
+
+# Web UI origin
+WEB_ORIGIN=http://localhost:3000
 ```
 
-## Technology Stack
+Important: `MEDIA_HOST_PATH` is the **host** path used by docker-compose as the read-only bind-mount source. `MEDIA_ROOT` is the **container-visible** path (always `/media`) — the two namespaces must not be mixed. `DATABASE_URL` / `FFPROBE_PATH` from `.env` are overridden by docker-compose.yml.
 
-- TypeScript
-- Node.js
-- Express
-- Next.js
-- React
-- Zod
-- PostgreSQL
-- Prisma
-- Redis
-- BullMQ
-- FFmpeg / ffprobe
-- Docker
-- Docker Compose
-
-## Design Principles
-
-TMIP is designed around the following principles:
-
-- source media remains read-only
-- unchanged files are not unnecessarily reprocessed
-- PostgreSQL is the persistent source of truth
-- stable metadata uses relational columns
-- flexible metadata uses PostgreSQL JSONB
-- long-running work runs outside HTTP request handlers
-- failures for individual files must not stop an entire scan
-- architecture should remain simple but easy to extend
-- future features should not be implemented before the core metadata pipeline is reliable
-
-## Out of Scope for v1
-
-TMIP v1 is intentionally not a complete Digital Asset Management platform.
-
-The following are currently outside the project scope:
-
-- AI-generated metadata
-- transcription
-- OCR
-- face recognition
-- object detection
-- semantic search
-- chatbot functionality
-- automated technical QC
-- transcoding
-- proxy generation
-- file rename, move, or deletion
-- archive lifecycle automation
-- advanced reporting
-- complex approval workflows
-
-These capabilities may be evaluated in future phases after the core metadata inventory pipeline is stable.
-
-## Running TMIP
-
-The primary runtime mode is the full Docker stack:
+### 2. Start the stack
 
 ```bash
 docker compose up -d --build
 ```
 
-- Web UI: http://localhost:3000
-- API: http://localhost:4000
-- Trigger scans from the dashboard UI.
+This starts four services:
 
-The stack reads its configuration from `.env` (see `.env.example`). Media paths
-use two separate namespaces that must not be mixed:
+- `web` — Next.js UI at <http://localhost:3000>
+- `api` — Express API at <http://localhost:4000>
+- `postgres` — PostgreSQL 16 (port 5432)
+- `ai-processor` — internal-only Python/FastAPI ML service (not published to the host; started regardless, used only when AI is enabled)
 
-- `MEDIA_HOST_PATH` — the **host** filesystem path. Used only by
-  docker-compose.yml as the read-only bind-mount source
-  (`${MEDIA_HOST_PATH}:/media:ro`, ADR-002). It is never read by the application.
-- `MEDIA_ROOT` — the **container-visible** path. Always `/media` inside the api
-  and ai-processor containers, and it matches the bind-mount target and
-  `Storage.rootPath`.
+### 3. Run a scan
 
-`DATABASE_URL` / `FFPROBE_PATH` from `.env` are overridden by docker-compose.yml.
+Open <http://localhost:3000> and trigger a scan from the dashboard. The scanner walks the mounted storage recursively, records new/changed/unchanged/missing files, and queues metadata extraction for files that need it. Scan progress is tracked in the UI.
 
-Canonical Server A deployment:
+### 4. Browse the inventory
 
-```text
-Server B                        (media storage)
-    ↓ SMB/NFS
-Server A  /mnt/tmip-media       (host mount, read-only)
-    ↓ Docker bind mount :ro
-Containers  /media              (MEDIA_ROOT, Storage.rootPath)
-```
+Each discovered file appears in the media inventory with its technical metadata (from ffprobe) on its detail page. Files that failed extraction transiently are retried automatically (bounded, `METADATA_MAX_RETRIES` default 2); the retry count shows as `retryCount` on the detail page. Use **Reprocess metadata** on a detail page (or `POST /media/:id/reprocess`) to manually re-extract.
 
-For development on Windows the same shape applies with
-`MEDIA_HOST_PATH=D:/DEVELOP/Media`.
+### 5. (Optional) Enable AI enrichment
 
-### Bounded metadata retry
+Add to `.env`, then rebuild:
 
-A metadata extraction that fails for a plausibly transient reason (ffprobe
-timeout, a file momentarily unreadable or absent, temporary storage/network
-unavailability) is retried automatically inside the same worker, with bounded
-exponential backoff, before a final `FAILED` is recorded. Permanent failures
-(corrupt/unsupported media, invalid structure, deterministic validation errors)
-are never retried automatically. Both knobs are optional:
-
-- `METADATA_MAX_RETRIES` (default `2`) — extra attempts after the first; `0`
-  disables automatic retry.
-- `METADATA_RETRY_BACKOFF_MS` (default `250`) — base backoff, doubling per
-  retry and capped at 5 s.
-
-The retry count is visible as `retryCount` on the media detail page. Manual
-reprocessing from the media detail page still works and resets the retry state.
-See `WORKFLOWS.md §33` and `ADR/ADR-005-bounded-extraction-retry.md`.
-
-### AI enrichment (additive v2 capability)
-
-TMIP can optionally enrich a media file with AI results — transcription,
-summary, keywords, content classification, and lower-third OCR. This is an
-**additive v2 capability**: it does not change TMIP v1 behavior or acceptance
-criteria, and it is **disabled by default**.
-
-The AI Processor is a separate Python/FastAPI service (`ai-processor/`) that owns
-the heavy ML dependencies (faster-whisper, Torch, OpenCV, Tesseract) so the Node
-API image stays small. TMIP orchestrates it through a PostgreSQL-backed runner —
-**no Redis and no BullMQ are introduced** (`ADR/ADR-006-ai-processor-integration.md`).
-
-Enabling it:
-
-```bash
-# .env
+```dotenv
 AI_ENABLED=true
-# LLM provider for the summary/keywords/classification stages (and OCR presenter
-# parsing). Any [OI]-compatible /chat/completions API works. Never commit a key.
 LLM_BASE_URL=https://openrouter.ai/api/v1
 LLM_API_KEY=sk-or-...
 LLM_MODEL=deepseek/deepseek-chat
@@ -219,97 +103,17 @@ LLM_MODEL=deepseek/deepseek-chat
 docker compose up -d --build
 ```
 
-The generic `LLM_*` names take precedence over the legacy `OPENROUTER_*` names
-(kept for backward compatibility), so an existing OpenRouter-only setup keeps
-working unchanged. Provider errors are classified by HTTP status — a bad key
-(401) or a missing model (404) fails permanently and is not retried; only
-timeouts, 429, and 5xx are retried.
+When enabled, every NEW file that finishes metadata extraction gets `aiStatus = PENDING`; the runner then produces transcription (faster-whisper), summary/keywords/classification (LLM), and lower-third OCR (Tesseract, sampled at 5 points across the video). Each stage is stored as its own `AiResult` row; a later-stage failure keeps earlier results (`aiPartial = true`). Manual reprocess: media detail page or `POST /media/:id/ai-reprocess`. Cancel a running job: detail page or `POST /media/:id/ai-cancel` (cooperative, durable cancellation intent).
 
-How it works:
+Provider errors are classified by HTTP status — 401/404 fail permanently; only timeouts, 429, and 5xx are retried (bounded by `AI_MAX_RETRIES`). The `ai-processor` container is internal-only and never writes to the media tree.
 
-- The `ai-processor` service runs on the internal compose network only. Its port
-  is **not published to the host** (`expose: ["8000"]`), and its media mount is
-  **read-only** (`${MEDIA_HOST_PATH}:/media:ro`), identical to the api service.
-- The AI Processor **never writes into the media tree**. Progress and results are
-  returned over HTTP and persisted in PostgreSQL.
-- When `AI_ENABLED=true`, a media file that becomes `metadataStatus = READY` and
-  is NEW gets `aiStatus = PENDING`; the AI Runner drains those rows with
-  `AI_CONCURRENCY` (default `1`).
-- Each stage's result is stored as its own `AiResult` row. If a later stage
-  fails, earlier successful stages are kept and `aiStatus = READY` with
-  `aiPartial = true`.
-- OCR samples up to five frames across the video (10/30/50/70/90 % of the
-  duration) and keeps the best-scoring lower-third text, instead of trusting a
-  single — often black — opening frame.
-- AI failures are retried only when plausibly transient, bounded by
-  `AI_MAX_RETRIES`. Permanent failures (unsupported/corrupt media, bad request,
-  auth, missing model) are never retried.
-- On restart, a `PROCESSING` row with a pending cancellation intent becomes
-  `CANCELLED`; any other `PROCESSING` row is reset to `PENDING` and re-run.
-  TMIP's database is the only source of job truth.
-
-Manual AI reprocessing from the media detail page (or
-`POST /media/:id/ai-reprocess`) resets a file to `PENDING` and clears its error
-state. `409` means either a run is already in flight or AI is disabled.
-
-Stopping a run (media detail page, or `POST /media/:id/ai-cancel`) records a
-**durable cancellation intent** and returns `202` with the row still
-`PROCESSING` — the runner then stops before the next stage and finalizes
-`CANCELLED`, keeping results from stages that already completed. The UI shows
-"Stopping…" until the server confirms the terminal state. Cancellation is
-cooperative: TMIP stops writing results immediately, but a remote provider call
-already in flight may still finish on its side.
-
-The AI lifecycle is fully separate from technical metadata: AI never writes
-`metadataStatus` and the ffprobe pipeline is unaffected whether AI is enabled or
-not. With `AI_ENABLED` unset, `aiStatus = PENDING` simply means "not processed".
-See `ADR/ADR-006-ai-processor-integration.md` and
-`docs/plans/006-ai-processor-integration.md`.
-
-### Storage rootPath and runtime mode
-
-`Storage.rootPath` lives in the **container/application namespace**, so in the
-Docker stack it is always `/media` — the same value as `MEDIA_ROOT`, never the
-host path (`MEDIA_HOST_PATH`). The api startup bootstrap requires the `Storage`
-row's `rootPath` to equal the `MEDIA_ROOT` of the environment it runs in, and
-refuses to rewrite it automatically:
-
-- **Full Docker** (recommended): `rootPath` must be `/media`.
-  ```bash
-  docker compose exec postgres psql -U tmip -d tmip \
-    -c "UPDATE \"Storage\" SET \"rootPath\" = '/media' WHERE name = '<STORAGE_NAME>';"
-  ```
-- **Host dev** (`pnpm --filter @tmip/api dev`) runs the application directly
-  against the host filesystem, so for that environment `MEDIA_ROOT` — and
-  therefore `rootPath` — must be the host path (e.g. `D:\DEVELOP\Media`). This
-  is a different environment with a deliberately different value.
-
-Media records are safe either way — `MediaFile.relativePath` is always stored
-relative to the storage root and is never rewritten to an absolute path, so
-switching the root does not invalidate the inventory. Do not alternate modes
-against the same database without updating the `Storage` row's `rootPath`.
-
-## Accessing PostgreSQL
-
-TMIP v1 does not provide record deletion through the API or UI; this is an intentional v1 scope decision. Explicit metadata reprocessing *is* provided — use the "Reprocess metadata" action on a media detail page, or `POST /media/:id/reprocess` (see `WORKFLOWS.md` §52). For local operational cleanup that is not covered by the application, connect to the database directly.
-
-Using the built-in `psql` client inside the Docker container (no extra installation):
+### 6. Operational access to PostgreSQL
 
 ```bash
 docker compose exec postgres psql -U tmip -d tmip
 ```
 
-Or connect any SQL client (pgAdmin, DBeaver, ...) using the compose credentials:
-
-```text
-host: localhost
-port: 5432
-user: tmip        (POSTGRES_USER from .env)
-password: tmip    (POSTGRES_PASSWORD from .env)
-database: tmip    (POSTGRES_DB from .env)
-```
-
-Useful operational queries:
+Or any SQL client: host `localhost`, port `5432`, user/password/database from `.env` (defaults `tmip`).
 
 ```sql
 -- Inspect scan records
@@ -319,15 +123,34 @@ SELECT id, status, "errorMessage" FROM "ScanJob" ORDER BY "createdAt" DESC;
 DELETE FROM "ScanJob" WHERE id = '<scan-id>';
 ```
 
-To reprocess a single file's metadata, prefer the application action described above. The equivalent manual SQL (only needed if the API/UI is unavailable) is to re-queue the row and then start a scan in the UI:
+TMIP v1 intentionally provides no record deletion through the API or UI. Reprocess metadata via the app (`POST /media/:id/reprocess`, see `WORKFLOWS.md` §52). Manual re-queue (only if the API/UI is unavailable): `UPDATE "MediaFile" SET "metadataStatus" = 'PENDING' WHERE "relativePath" = '<relative-path>';` then start a scan in the UI. Do not modify or delete rows you do not understand — the media inventory is the application's source of truth.
 
-```sql
--- Re-queue a file for metadata extraction, then start a scan in the UI.
--- Extraction will fail again until ffprobe is available (host install or Docker stack).
-UPDATE "MediaFile" SET "metadataStatus" = 'PENDING' WHERE "relativePath" = '<relative-path>';
-```
+### Storage rootPath and runtime mode
 
-Do not modify or delete rows you do not understand; the media inventory is the application's source of truth.
+`Storage.rootPath` lives in the **container/application namespace**: in the Docker stack it is always `/media` (same value as `MEDIA_ROOT`, never the host path). The api startup bootstrap requires `rootPath` to equal the environment's `MEDIA_ROOT` and refuses to rewrite it automatically:
+
+- **Full Docker** (recommended): `rootPath` must be `/media`.
+  ```bash
+  docker compose exec postgres psql -U tmip -d tmip \
+    -c "UPDATE \"Storage\" SET \"rootPath\" = '/media' WHERE name = '<STORAGE_NAME>';"
+  ```
+- **Host dev** (`pnpm --filter @tmip/api dev`) runs directly against the host filesystem, so `MEDIA_ROOT` / `rootPath` must be the host path (e.g. `D:\DEVELOP\Media`) — a different environment with a deliberately different value.
+
+`MediaFile.relativePath` is always stored relative to the storage root, so switching the root does not invalidate the inventory. Do not alternate modes against the same database without updating the `Storage` row's `rootPath`.
+
+## Design Principles
+
+- source media remains read-only
+- unchanged files are not unnecessarily reprocessed
+- PostgreSQL is the persistent source of truth
+- stable metadata uses relational columns; flexible metadata uses JSONB
+- long-running work runs outside HTTP request handlers
+- failures for individual files must not stop an entire scan
+- architecture stays simple but easy to extend; no feature before the core pipeline is reliable
+
+## Out of Scope for v1
+
+TMIP v1 is intentionally not a full Digital Asset Management platform. Outside scope: automated technical QC, transcoding, proxy generation, file rename/move/deletion, archive lifecycle automation, advanced reporting, complex approval workflows, face recognition, and object detection. (AI transcription/summary/OCR exists as the additive v2 capability described above; semantic search and chatbot functionality remain out of scope.) These may be evaluated in future phases.
 
 ## Project Documentation
 
